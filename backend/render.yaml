@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: jugglers-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn backend.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "jugglers-backend.onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: jugglers-db
+          property: connectionString
+
+databases:
+  - name: jugglers-db
+    databaseName: jugglers_shop
+    user: jugglers_user
