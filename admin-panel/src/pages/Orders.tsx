@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Package, Eye, Edit } from 'lucide-react';
+import { Package, Eye } from 'lucide-react';
 
 const Orders = () => {
   const [selectedOrder, setSelectedOrder] = useState<any>(null);

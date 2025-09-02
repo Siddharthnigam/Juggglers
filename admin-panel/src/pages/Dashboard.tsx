@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { DollarSign, ShoppingCart, Package, Users, TrendingUp } from 'lucide-react';
+import { DollarSign, ShoppingCart, Package, TrendingUp } from 'lucide-react';
 
 const Dashboard = () => {
   const { data: stats, isLoading } = useQuery({
@@ -116,7 +116,7 @@ const Dashboard = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {stats.recentOrders.map((order: any) => (
+                  {stats?.recentOrders?.map((order: any) => (
                     <tr key={order.id}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         #{order.id}
