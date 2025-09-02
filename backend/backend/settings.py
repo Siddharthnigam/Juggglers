@@ -30,10 +30,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-fallback-key')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ALLOWED_HOSTS configuration
-if config('ALLOWED_HOSTS', default=None):
-    ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*.onrender.com', 'juggglers.onrender.com', '.onrender.com']
+ALLOWED_HOSTS = ['*']  # Allow all hosts for now
 
 
 # Application definition
